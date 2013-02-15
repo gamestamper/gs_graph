@@ -9,7 +9,7 @@ describe GSGraph::Link, '.new' do
         :id => '23456',
         :name => 'nov matake'
       },
-      :link => 'http://www.facebook.com/link/12345',
+      :link => 'http://www.gamestamper.com/link/12345',
       :name => 'name',
       :description => 'description',
       :icon => 'http://static.ak.fbcdn.net/rsrc.php/zB010/hash/9yvl71tw.gif',
@@ -20,7 +20,7 @@ describe GSGraph::Link, '.new' do
     link = GSGraph::Link.new(attributes.delete(:id), attributes)
     link.identifier.should   == '12345'
     link.from.should         == GSGraph::User.new('23456', :name => 'nov matake')
-    link.link.should         == 'http://www.facebook.com/link/12345'
+    link.link.should         == 'http://www.gamestamper.com/link/12345'
     link.name.should         == 'name'
     link.description.should  == 'description'
     link.icon.should         == 'http://static.ak.fbcdn.net/rsrc.php/zB010/hash/9yvl71tw.gif'

@@ -14,17 +14,17 @@ describe GSGraph::Message, '.new' do
       },
       :from => {
         :name => "Nov Matake",
-        :email => "abc@facebook.com",
+        :email => "abc@gamestamper.com",
         :id => "1575327134"
       },
       :to => {
         :data => [{
           :name => "Nov Matake",
-          :email => "xyz@facebook.com",
+          :email => "xyz@gamestamper.com",
           :id => "579612276"
         }, {
           :name => "Nov Matake",
-          :email => "abc@facebook.com",
+          :email => "abc@gamestamper.com",
           :id => "1575327134"
         }]
       },
@@ -38,10 +38,10 @@ describe GSGraph::Message, '.new' do
       GSGraph::Tag.new(:name => 'inbox'),
       GSGraph::Tag.new(:name => 'source:web')
     ]
-    message.from.should == GSGraph::User.new('1575327134', :name => 'Nov Matake', :email => 'abc@facebook.com')
+    message.from.should == GSGraph::User.new('1575327134', :name => 'Nov Matake', :email => 'abc@gamestamper.com')
     message.to.should == [
-      GSGraph::User.new('579612276', :name => 'Nov Matake', :email => 'xyz@facebook.com'),
-      GSGraph::User.new('1575327134', :name => 'Nov Matake', :email => 'abc@facebook.com')
+      GSGraph::User.new('579612276', :name => 'Nov Matake', :email => 'xyz@gamestamper.com'),
+      GSGraph::User.new('1575327134', :name => 'Nov Matake', :email => 'abc@gamestamper.com')
     ]
   end
 end

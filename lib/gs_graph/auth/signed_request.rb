@@ -4,7 +4,7 @@ require 'openssl'
 module GSGraph
   class Auth
     class SignedRequest
-      OAUTH_DIALOG_ENDPOINT = 'https://www.facebook.com/dialog/oauth'
+      OAUTH_DIALOG_ENDPOINT = 'https://www.gamestamper.com/dialog/oauth'
 
       def self.verify(client, signed_request)
         signature, payload = signed_request.split('.')

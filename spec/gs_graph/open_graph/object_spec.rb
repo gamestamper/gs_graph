@@ -24,7 +24,7 @@ describe GSGraph::OpenGraph::Object do
           "application": {
             "id": "115190258555800",
             "name": "Open Graph",
-            "url": "http:\/\/www.facebook.com\/apps\/application.php?id=115190258555800"
+            "url": "http:\/\/www.gamestamper.com\/apps\/application.php?id=115190258555800"
           }
         }
       JSON
@@ -57,7 +57,7 @@ describe GSGraph::OpenGraph::Object do
           "application": {
             "id": "134145643294322",
             "name": "gem sample",
-            "url": "http:\/\/www.facebook.com\/apps\/application.php?id=134145643294322"
+            "url": "http:\/\/www.gamestamper.com\/apps\/application.php?id=134145643294322"
           }
         }
       JSON

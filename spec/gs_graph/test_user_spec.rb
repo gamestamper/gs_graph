@@ -7,12 +7,12 @@ describe GSGraph::TestUser, '.new' do
       :id => 12345,
       :access_token => 'access_token',
       :name => 'nov',
-      :login_url => 'https://www.facebook.com/login/test-user/12345',
+      :login_url => 'https://www.gamestamper.com/login/test-user/12345',
       :email => 'test1@client.example.com',
       :password => 'password'
     }
     test_user = GSGraph::TestUser.new(attributes.delete(:id), attributes)
-    test_user.login_url.should == 'https://www.facebook.com/login/test-user/12345'
+    test_user.login_url.should == 'https://www.gamestamper.com/login/test-user/12345'
     test_user.name.should == 'nov'
     test_user.email.should == 'test1@client.example.com'
     test_user.password.should == 'password'

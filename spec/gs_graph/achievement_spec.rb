@@ -20,7 +20,7 @@ describe GSGraph::Achievement do
       :application => {
         :id => "134145643294322",
         :name => "gem sample",
-        :url => "http:\/\/www.facebook.com\/apps\/application.php?id=134145643294322"
+        :url => "http:\/\/www.gamestamper.com\/apps\/application.php?id=134145643294322"
       },
       :context => {
         :display_order => 0

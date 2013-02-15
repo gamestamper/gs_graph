@@ -6,7 +6,7 @@ describe GSGraph::Notification do
       :id => 'notif_579612276_139149416',
       :title => 'Nobuhiro Nakajima commented on your status.',
       :message => 'Actual Comment Here',
-      :link => 'http://www.facebook.com/matake/posts/10150574049082277',
+      :link => 'http://www.gamestamper.com/matake/posts/10150574049082277',
       :unread => 0,
       :application => {
         :id => '19675640871',

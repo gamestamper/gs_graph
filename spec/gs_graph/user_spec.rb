@@ -103,7 +103,7 @@ describe GSGraph::User do
           user.first_name.should == 'Arjun'
           user.last_name.should  == 'Banker'
           user.identifier.should == '7901103'
-          user.link.should       == 'http://www.facebook.com/Arjun'
+          user.link.should       == 'http://www.gamestamper.com/Arjun'
           user.location.should   == GSGraph::Page.new(114952118516947, :name => 'San Francisco, California')
           user.gender.should     == 'male'
         end
@@ -120,7 +120,7 @@ describe GSGraph::User do
           user.first_name.should == 'Arjun'
           user.last_name.should  == 'Banker'
           user.identifier.should == '7901103'
-          user.link.should       == 'http://www.facebook.com/Arjun'
+          user.link.should       == 'http://www.gamestamper.com/Arjun'
           user.location.should   == GSGraph::Page.new(114952118516947, :name => 'San Francisco, California')
           user.gender.should     == 'male'
 

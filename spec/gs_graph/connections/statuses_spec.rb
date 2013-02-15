@@ -24,7 +24,7 @@ describe GSGraph::Connections::Statuses, '#statuses' do
               :id => '7901103',
               :name => 'Arjun Banker'
             },
-            :message => 'http://www.facebook.com/photo.php?pid=60538827&l=79b44ffb74&id=7901103',
+            :message => 'http://www.gamestamper.com/photo.php?pid=60538827&l=79b44ffb74&id=7901103',
             :updated_time => '2010-04-21T21:10:16+0000'
           )
           statuses.each do |status|

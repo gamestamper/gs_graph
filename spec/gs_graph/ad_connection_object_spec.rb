@@ -5,29 +5,29 @@ describe GSGraph::AdConnectionObject, '.new' do
     attributes = {
       :id => 354545238888,
       :name => "MyPage",
-      :url => "http://www.facebook.com/MyPage",
+      :url => "http://www.gamestamper.com/MyPage",
       :type => 1,
       :tabs =>
       {
-        "http://www.facebook.com/MyPage?sk=wall" => "Wall",
-        "http://www.facebook.com/MyPage?sk=info" => "Info",
-        "http://www.facebook.com/MyPage?sk=friendactivity" => "Friend Activity",
-        "http://www.facebook.com/MyPage?sk=photos" => "Photos",
-        "http://www.facebook.com/MyPage?sk=app_2373072222" => "Discussions"
+        "http://www.gamestamper.com/MyPage?sk=wall" => "Wall",
+        "http://www.gamestamper.com/MyPage?sk=info" => "Info",
+        "http://www.gamestamper.com/MyPage?sk=friendactivity" => "Friend Activity",
+        "http://www.gamestamper.com/MyPage?sk=photos" => "Photos",
+        "http://www.gamestamper.com/MyPage?sk=app_2373072222" => "Discussions"
       },
       :picture => "http://profile.ak.fbcdn.net/hprofile-ak-snc4/41591_354545238178_3195000_s.jpg"
     }    
     ad_connection = GSGraph::AdConnectionObject.new(attributes.delete(:id), attributes)
     ad_connection.identifier.should == 354545238888
     ad_connection.name.should == "MyPage"
-    ad_connection.url.should == "http://www.facebook.com/MyPage"
+    ad_connection.url.should == "http://www.gamestamper.com/MyPage"
     ad_connection.type.should == 1
     ad_connection.should be_page
     ad_connection.object.should be_instance_of(GSGraph::Page)
     ad_connection.object.identifier.should == 354545238888
     ad_connection.picture.should == "http://profile.ak.fbcdn.net/hprofile-ak-snc4/41591_354545238178_3195000_s.jpg"
     ad_connection.tabs.should be_instance_of(Hash)
-    ad_connection.tabs["http://www.facebook.com/MyPage?sk=wall"].should == "Wall"
+    ad_connection.tabs["http://www.gamestamper.com/MyPage?sk=wall"].should == "Wall"
     
     application_attributes = {
         :id => 354545238889, 
@@ -49,7 +49,7 @@ describe GSGraph::AdConnectionObject, '.new' do
         :supported_platforms => [2], 
         :tabs => [],
         :type => 2,
-        :url => "http://apps.facebook.com/test_app/"
+        :url => "http://apps.gamestamper.com/test_app/"
     }
     
     ad_connection = GSGraph::AdConnectionObject.new(application_attributes.delete(:id), application_attributes)
@@ -66,6 +66,6 @@ describe GSGraph::AdConnectionObject, '.new' do
     ad_connection.supported_platforms.should == [2]
     ad_connection.tabs.should == []
     ad_connection.type.should == 2
-    ad_connection.url.should == "http://apps.facebook.com/test_app/"
+    ad_connection.url.should == "http://apps.gamestamper.com/test_app/"
   end
 end

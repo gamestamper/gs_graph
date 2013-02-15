@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe GSGraph::Debugger::RequestFilter do
-  let(:resource_endpoint) { 'https://graph.facebook.com/matake' }
+  let(:resource_endpoint) { 'https://graph.gamestamper.com/matake' }
   let(:request) { HTTP::Message.new_request(:get, URI.parse(resource_endpoint)) }
   let(:response) { HTTP::Message.new_response({:hello => 'world'}.to_json) }
   let(:request_filter) { GSGraph::Debugger::RequestFilter.new }

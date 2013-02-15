@@ -18,18 +18,18 @@ describe GSGraph::Thread, '.new' do
       :participants => {
         :data => [{
           :name => "Nov Matake",
-          :email => "xyz@facebook.com",
+          :email => "xyz@gamestamper.com",
           :id => "579612276"
         }, {
           :name => "Nov Matake",
-          :email => "abc@facebook.com",
+          :email => "abc@gamestamper.com",
           :id => "1575327134"
         }]
       },
       :senders => {
         :data => [{
           :name => "Nov Matake",
-          :email => "abc@facebook.com",
+          :email => "abc@gamestamper.com",
           :id => "1575327134"
         }]
       },
@@ -47,25 +47,25 @@ describe GSGraph::Thread, '.new' do
           },
           :from => {
             :name => "Nov Matake",
-            :email => "abc@facebook.com",
+            :email => "abc@gamestamper.com",
             :id => "1575327134"
           },
           :to => {
             :data => [{
               :name => "Nov Matake",
-              :email => "xyz@facebook.com",
+              :email => "xyz@gamestamper.com",
               :id => "579612276"
             }, {
               :name => "Nov Matake",
-              :email => "abc@facebook.com",
+              :email => "abc@gamestamper.com",
               :id => "1575327134"
             }]
           },
           :message => "test"
         }],
         :paging => {
-          :previous => "https://graph.facebook.com/?access_token=access_token",
-          :next => "https://graph.facebook.com/?access_token=access_token"
+          :previous => "https://graph.gamestamper.com/?access_token=access_token",
+          :next => "https://graph.gamestamper.com/?access_token=access_token"
         }
       }
     }
@@ -80,7 +80,7 @@ describe GSGraph::Thread, '.new' do
       GSGraph::Tag.new(:name => 'source:web')
     ]
     thread.senders.should == [
-      GSGraph::User.new('1575327134', :name => 'Nov Matake', :email => 'abc@facebook.com')
+      GSGraph::User.new('1575327134', :name => 'Nov Matake', :email => 'abc@gamestamper.com')
     ]
   end
 end

@@ -12,7 +12,7 @@ describe GSGraph::Album do
         :name => 'album 1',
         :description => 'an album for gs_graph test',
         :location => 'Tokyo, Japan',
-        :link => 'http://www.facebook.com/album/12345',
+        :link => 'http://www.gamestamper.com/album/12345',
         :count => 10,
         :cover_photo => '10150146072661729',
         :type => 'normal',
@@ -36,7 +36,7 @@ describe GSGraph::Album do
       album.name.should           == 'album 1'
       album.description.should    == 'an album for gs_graph test'
       album.location.should       == 'Tokyo, Japan'
-      album.link.should           == 'http://www.facebook.com/album/12345'
+      album.link.should           == 'http://www.gamestamper.com/album/12345'
       album.cover_photo.should    == GSGraph::Photo.new('10150146072661729')
       album.count.should          == 10
       album.type.should           == 'normal'

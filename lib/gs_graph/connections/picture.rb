@@ -6,7 +6,7 @@ module GSGraph
       # 2. By width and height, so facebook return the _closest_
       #    match to the size you specified, if only one parameter
       #    is set, then facebook will return square image
-      # See: https://developers.facebook.com/docs/reference/api/user/
+      # See: https://developers.gamestamper.com/docs/reference/api/user/
       def picture(options_or_size = {})
         options = if options_or_size.is_a?(String) || options_or_size.is_a?(Symbol)
           {:type => options_or_size}

@@ -26,10 +26,10 @@ describe GSGraph::Post, '.new' do
       :object_id => "12345",
       :actions => [{
         :name => "Comment",
-        :link => "http://www.facebook.com/579612276/posts/10150089741782277"
+        :link => "http://www.gamestamper.com/579612276/posts/10150089741782277"
       }, {
         :name => "Like",
-        :link => "http://www.facebook.com/579612276/posts/10150089741782277"
+        :link => "http://www.gamestamper.com/579612276/posts/10150089741782277"
       }, {
         :name => "@nov on Twitter",
         :link => "http://twitter.com/nov?utm_source=fb&utm_medium=fb&utm_campaign=nov&utm_content=19294280413614080"
@@ -74,11 +74,11 @@ describe GSGraph::Post, '.new' do
     post.actions.should == [
       GSGraph::Action.new(
         :name => "Comment",
-        :link => "http://www.facebook.com/579612276/posts/10150089741782277"
+        :link => "http://www.gamestamper.com/579612276/posts/10150089741782277"
       ),
       GSGraph::Action.new(
         :name => "Like",
-        :link => "http://www.facebook.com/579612276/posts/10150089741782277"
+        :link => "http://www.gamestamper.com/579612276/posts/10150089741782277"
       ),
       GSGraph::Action.new(
         :name => "@nov on Twitter",

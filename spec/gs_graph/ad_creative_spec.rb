@@ -15,7 +15,7 @@ describe GSGraph::AdCreative, '.new' do
       :link_url => "http://www.google.com/",
       :name => "Creative Name",
       :run_status => 1,
-      :preview_url => "http://www.facebook.com/ads/api/creative_preview.php?cid=6003590469668",
+      :preview_url => "http://www.gamestamper.com/ads/api/creative_preview.php?cid=6003590469668",
       :count_current_adgroups => 1,
       :object_id => 12345,
       :story_id => 54321,
@@ -38,7 +38,7 @@ describe GSGraph::AdCreative, '.new' do
     ad_creative.link_url.should == "http://www.google.com/"
     ad_creative.name.should == "Creative Name"
     ad_creative.run_status.should == 1
-    ad_creative.preview_url.should == "http://www.facebook.com/ads/api/creative_preview.php?cid=6003590469668"
+    ad_creative.preview_url.should == "http://www.gamestamper.com/ads/api/creative_preview.php?cid=6003590469668"
     ad_creative.count_current_adgroups.should == 1
     ad_creative.facebook_object_id.should == 12345
     ad_creative.image_url.should == "https://www.google.com/image.png"
@@ -66,7 +66,7 @@ end
        ad_creative.link_url.should == "http://www.google.com/"
        ad_creative.name.should == "Creative Name"
        ad_creative.run_status.should == 1
-       ad_creative.preview_url.should == "http://www.facebook.com/ads/api/creative_preview.php?cid=6003590469668"
+       ad_creative.preview_url.should == "http://www.gamestamper.com/ads/api/creative_preview.php?cid=6003590469668"
        ad_creative.count_current_adgroups.should == 1
        ad_creative.image_url.should == "https://www.google.com/image.png"
      end

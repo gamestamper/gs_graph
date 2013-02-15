@@ -25,12 +25,12 @@ describe GSGraph::Page do
   describe 'link' do
     context 'when username exists' do
       subject { GSGraph::Page.new(attributes[:id], attributes) }
-      its(:link) { should == "https://www.facebook.com/#{attributes[:username]}" }
+      its(:link) { should == "https://www.gamestamper.com/#{attributes[:username]}" }
     end
 
     context 'otherwise' do
       subject { GSGraph::Page.new(attributes[:id]) }
-      its(:link) { should == "https://www.facebook.com/#{attributes[:id]}" }
+      its(:link) { should == "https://www.gamestamper.com/#{attributes[:id]}" }
     end
   end
 

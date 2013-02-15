@@ -26,7 +26,7 @@ describe GSGraph::Connections::Albums, '#albums' do
             },
             :name => 'モバイルアップロード',
             :description => 'hello facebookers!',
-            :link => 'http://www.facebook.com/album.php?aid=25463&id=579612276',
+            :link => 'http://www.gamestamper.com/album.php?aid=25463&id=579612276',
             :location => 'NYC',
             :count => 3,
             :privacy => 'everyone',

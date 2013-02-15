@@ -10,7 +10,7 @@ describe GSGraph::Doc do
           :name => 'Nov Matake'
         },
         :subject => 'Subject',
-        :icon => 'https://s-static.ak.facebook.com/rsrc.php/v1/yi/r/-64q65AWgXb.png',
+        :icon => 'https://s-static.ak.gamestamper.com/rsrc.php/v1/yi/r/-64q65AWgXb.png',
         :updated_time => '2011-03-12T02:43:04+0000',
         :revision => 207279219287628
       }
@@ -20,7 +20,7 @@ describe GSGraph::Doc do
       doc.identifier.should == '12345'
       doc.from.should == GSGraph::User.new('123456', :name => 'Nov Matake')
       doc.subject.should == 'Subject'
-      doc.icon.should == 'https://s-static.ak.facebook.com/rsrc.php/v1/yi/r/-64q65AWgXb.png'
+      doc.icon.should == 'https://s-static.ak.gamestamper.com/rsrc.php/v1/yi/r/-64q65AWgXb.png'
       doc.revision.should == 207279219287628
     end
   end

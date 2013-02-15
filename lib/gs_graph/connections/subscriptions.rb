@@ -18,7 +18,7 @@ module GSGraph
       # 
       # Subscriber have to setup PubSubHubbub subscriber endpoint.
       # See details at "Subscription Verification" in the Facebook API document.
-      # ref) http://developers.facebook.com/docs/api/realtime
+      # ref) http://developers.gamestamper.com/docs/api/realtime
       # 
       #   app = GSGraph::Application.new(APP_ID, :secret => APP_SECRET)
       #   app.subscribe!(
@@ -37,7 +37,7 @@ module GSGraph
       # 
       # Delete all of your subscriptions.
       # If you specify an object parameter, it will only delete the corresponding subscription.
-      # ref) http://developers.facebook.com/docs/api/realtime
+      # ref) http://developers.gamestamper.com/docs/api/realtime
       # 
       #   app = GSGraph::Application.new(APP_ID, :secret => APP_SECRET)
       #   app.unsubscribe!(

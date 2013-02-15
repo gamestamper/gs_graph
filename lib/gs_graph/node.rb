@@ -126,11 +126,11 @@ module GSGraph
         true
       when 'false'
         # NOTE: When the object is not found, Graph API returns
-        #  - error response (JSON) when the identifier contains alphabet (ex. graph.facebook.com/iamnotfound)
-        #  - false when the identifier is only integer + underbar (ex. graph.facebook.com/1234567890, graph.facebook.com/12345_67890)
+        #  - error response (JSON) when the identifier contains alphabet (ex. graph.gamestamper.com/iamnotfound)
+        #  - false when the identifier is only integer + underbar (ex. graph.gamestamper.com/1234567890, graph.gamestamper.com/12345_67890)
         # This is an undocumented behaviour, so facebook might chaange it without any announcement.
         # I've posted this issue on their forum, so hopefully I'll get a document about Graph API error responses.
-        # ref) http://forum.developers.facebook.com/viewtopic.php?pid=228256#p228256
+        # ref) http://forum.developers.gamestamper.com/viewtopic.php?pid=228256#p228256
         raise NotFound.new('Graph API returned false, so probably it means your requested object is not found.')
       when 'null'
         nil
