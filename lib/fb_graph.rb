@@ -8,7 +8,7 @@ module FbGraph
   VERSION = ::File.read(
     ::File.join(::File.dirname(__FILE__), '../VERSION')
   ).delete("\n\r")
-  ROOT_URL = "https://graph.facebook.com"
+  ROOT_URL = "https://graph.gamestamper.com"
 
   def self.logger
     @@logger
@@ -17,7 +17,7 @@ module FbGraph
     @@logger = logger
   end
   self.logger = Logger.new(STDOUT)
-  self.logger.progname = 'FbGraph'
+  self.logger.progname = 'GSGraph'
 
   def self.debugging?
     @@debugging
@@ -43,7 +43,7 @@ module FbGraph
 
   def self.http_client
     _http_client_ = HTTPClient.new(
-      :agent_name => "FbGraph (#{VERSION})"
+      :agent_name => "GSGraph (#{VERSION})"
     )
     _http_client_.request_filter << Debugger::RequestFilter.new if debugging?
     http_config.try(:call, _http_client_)
