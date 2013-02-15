@@ -1,43 +1,41 @@
-= FbGraph
+= GSGraph
 
-A full-stack Facebook Graph API wrapper in Ruby.
+A full-stack GameStamper Graph API wrapper in Ruby.
 
-{<img src="https://secure.travis-ci.org/nov/fb_graph.png" />}[http://travis-ci.org/nov/fb_graph]
+{<img src="https://secure.travis-ci.org/nov/gs_graph.png" />}[http://travis-ci.org/nov/gs_graph]
 {<img src="http://www.pledgie.com/campaigns/19043.png?skin_name=chrome" />}[http://www.pledgie.com/campaigns/19043]
 
 == Installation
 
-  gem install fb_graph
+  gem install gs_graph
 
 == Resources
 
-* View Source on GitHub (https://github.com/nov/fb_graph)
-* Report Issues on GitHub (https://github.com/nov/fb_graph/issues)
-* Subscribe Update Info (https://www.facebook.com/FbGraph)
-* Q&A on Google Groups (http://groups.google.com/group/fb_graph)
+* View Source on GitHub (https://github.com/rockycaamano/gs_graph)
+* Report Issues on GitHub (https://github.com/rockycaamano/gs_graph/issues)
 
 == Examples
 
-Now FbGraph supports all objects listed here: http://developers.facebook.com/docs/reference/api/
+Now GSGraph supports all objects listed here: http://developers.facebook.com/docs/reference/api/
 Almost all connections　for each object are also supported. ("attachments" and "shares" connections of message object are not supported yet)
 
 You can also play with a Rails sample app here. http://fbgraphsample.heroku.com/
 
 See GitHub wiki for more examples.
-https://github.com/nov/fb_graph/wiki
+https://github.com/nov/gs_graph/wiki
 
 === GET
 
 ==== Basic Objects
 
-  user = FbGraph::User.me(ACCESS_TOKEN)
+  user = GSGraph::User.me(ACCESS_TOKEN)
 
-  user = FbGraph::User.fetch('matake')
+  user = GSGraph::User.fetch('matake')
   user.name    # => 'Nov Matake'
   user.picture # => 'https://graph.facebook.com/matake/picture'
 
-  # fb_graph doesn't access to Graph API until you call "fetch"
-  user = FbGraph::User.new('matake', :access_token => YOUR_ACCESS_TOKEN)
+  # gs_graph doesn't access to Graph API until you call "fetch"
+  user = GSGraph::User.new('matake', :access_token => YOUR_ACCESS_TOKEN)
   user.identifier # => "matake"
   user.name # => nil
   user.link # => nil
@@ -45,7 +43,7 @@ https://github.com/nov/fb_graph/wiki
   user.name # => "Nov Matake"
   user.description # => "http://www.facebook.com/matake"
 
-  page = FbGraph::Page.fetch('smartfmteam')
+  page = GSGraph::Page.fetch('smartfmteam')
   page.name     # => 'smart.fm'
   page.picture  # => 'https://graph.facebook.com/smart.fm/picture'
 
@@ -54,7 +52,7 @@ https://github.com/nov/fb_graph/wiki
 ==== Connections
 
   # Public connections
-  user = FbGraph::User.fetch('matake')
+  user = GSGraph::User.fetch('matake')
   user.feed
   user.posts
   user.friends
@@ -63,8 +61,8 @@ https://github.com/nov/fb_graph/wiki
   :
 
   # Private connections requires "access_token"
-  FbGraph::User.new('matake').friends # => raise FbGraph::Unauthorized
-  user = FbGraph::User.fetch('matake', :access_token => ACCESS_TOKEN)
+  GSGraph::User.new('matake').friends # => raise GSGraph::Unauthorized
+  user = GSGraph::User.fetch('matake', :access_token => ACCESS_TOKEN)
   user.albums
   user.events
   user.friends
@@ -76,7 +74,7 @@ https://github.com/nov/fb_graph/wiki
   me.home
   :
 
-By default, FbGraph will only return the default fields. In order to
+By default, GSGraph will only return the default fields. In order to
 get a non-default field, you have to supply the connect with an options hash
 specifying the field. An example for events:
 
@@ -89,29 +87,29 @@ of the specific objects fields in the sidebar under "Objects".
 ==== Search
 
   # all objects
-  FbGraph::Searchable.search("FbGraph") # => Array of Hash
+  GSGraph::Searchable.search("GSGraph") # => Array of Hash
 
   # specify type
-  FbGraph::Page.search("FbGraph") # => Array of FbGraph::Page
-  FbGraph::User.search("matake", :access_token => ACCESS_TOKEN) # => Array of FbGraph::User
+  GSGraph::Page.search("GSGraph") # => Array of GSGraph::Page
+  GSGraph::User.search("matake", :access_token => ACCESS_TOKEN) # => Array of GSGraph::User
 
 ==== Pagination
 
   # collection
-  user = FbGraph::User.new('matake', :access_token => ACCESS_TOKEN)
-  likes = user.likes # => Array of FbGraph::Like
-  likes.next         # => Array of FbGraph::Like (next page)
-  likes.previous     # => Array of FbGraph::Like (previous page)
+  user = GSGraph::User.new('matake', :access_token => ACCESS_TOKEN)
+  likes = user.likes # => Array of GSGraph::Like
+  likes.next         # => Array of GSGraph::Like (next page)
+  likes.previous     # => Array of GSGraph::Like (previous page)
   likes.collection.next     # => Hash for pagination options (ex. {"limit"=>"25", "until"=>"2010-08-08T03:17:21+0000"})
   likes.collection.previous # => Hash for pagination options (ex. {"limit"=>"25", "since"=>"2010-08-08T06:28:20+0000"})
   user.likes(likes.collection.next)     # => same with likes.next
   user.likes(likes.collection.previous) # => same with likes.previous
 
   # search results
-  results = FbGraph::Page.search("FbGraph") # => Array of FbGraph::Page
-  results.next     # => Array of FbGraph::Page (next page)
-  results.previous # => Array of FbGraph::Page (next page)
-  results.klass    # => FbGraph::Page
+  results = GSGraph::Page.search("GSGraph") # => Array of GSGraph::Page
+  results.next     # => Array of GSGraph::Page (next page)
+  results.previous # => Array of GSGraph::Page (next page)
+  results.klass    # => GSGraph::Page
   results.collection.next     # => Hash for pagination options (ex. {"limit"=>"25", "until"=>"2010-08-08T03:17:21+0000"})
   results.collection.previous # => Hash for pagination options (ex. {"limit"=>"25", "since"=>"2010-08-08T06:28:20+0000"})
   results.klass.search(results.query, results.collection.next)     # => same with results.next
@@ -121,18 +119,18 @@ of the specific objects fields in the sidebar under "Objects".
 
 ==== Update status (wall post)
 
-  me = FbGraph::User.me(ACCESS_TOKEN)
+  me = GSGraph::User.me(ACCESS_TOKEN)
   me.feed!(
-    :message => 'Updating via FbGraph',
+    :message => 'Updating via GSGraph',
     :picture => 'https://graph.facebook.com/matake/picture',
-    :link => 'https://github.com/nov/fb_graph',
-    :name => 'FbGraph',
+    :link => 'https://github.com/nov/gs_graph',
+    :name => 'GSGraph',
     :description => 'A Ruby wrapper for Facebook Graph API'
   )
 
 ==== Post a like/comment to a post
 
-  post = FbGraph::Page.new(117513961602338).feed.first
+  post = GSGraph::Page.new(117513961602338).feed.first
   bool = post.like!(
     :access_token => ACCESS_TOKEN
   )
@@ -143,7 +141,7 @@ of the specific objects fields in the sidebar under "Objects".
 
 ==== Post a note
 
-  page = FbGraph::Page.new(117513961602338)
+  page = GSGraph::Page.new(117513961602338)
   note = page.note!(
     :access_token => ACCESS_TOKEN,
     :subject => 'testing',
@@ -152,17 +150,17 @@ of the specific objects fields in the sidebar under "Objects".
 
 ==== Post a link
 
-  me = FbGraph::User.me(ACCESS_TOKEN)
+  me = GSGraph::User.me(ACCESS_TOKEN)
   link = me.link!(
-    :link => 'https://github.com/nov/fb_graph',
+    :link => 'https://github.com/nov/gs_graph',
     :message => 'A Ruby wrapper for Facebook Graph API.'
   )
 
 ==== Create Event, respond to it
 
-  me = FbGraph::User.me(ACCESS_TOKEN)
+  me = GSGraph::User.me(ACCESS_TOKEN)
   event = me.event!(
-    :name => 'FbGraph test event',
+    :name => 'GSGraph test event',
     :start_time => 1.week.from_now,
     :end_time => 2.week.from_now
   )
@@ -178,15 +176,15 @@ of the specific objects fields in the sidebar under "Objects".
 
 ==== Create an album
 
-  me = FbGraph::User.me(ACCESS_TOKEN)
+  me = GSGraph::User.me(ACCESS_TOKEN)
   album = me.album!(
-    :name => 'FbGraph test',
+    :name => 'GSGraph test',
     :message => 'test test test'
   ) # => now facebook Graph API returns weird response for this call
 
 ==== Upload a photo to an album
 
-  me = FbGraph::User.me(ACCESS_TOKEN)
+  me = GSGraph::User.me(ACCESS_TOKEN)
   album = me.albums.first
   album.photo!(
     :access_token => ACCESS_TOKEN,
@@ -198,7 +196,7 @@ of the specific objects fields in the sidebar under "Objects".
 
 ==== Delete an object
 
-  post = FbGraph::Page.new(117513961602338).feed.first
+  post = GSGraph::Page.new(117513961602338).feed.first
   bool = post.like!(
     :access_token => ACCESS_TOKEN
   )
@@ -214,7 +212,7 @@ of the specific objects fields in the sidebar under "Objects".
 
 Both Facebook JavaScript SDK and normal OAuth2 flow is supported.
 Below I show simple sample code.
-You can also see https://github.com/nov/fb_graph_sample for more details Rails3 sample application.
+You can also see https://github.com/nov/gs_graph_sample for more details Rails3 sample application.
 
 In addition, if you are migrating an application that uses old-style session keys you can exchange
 the keys for access tokens.
@@ -222,13 +220,13 @@ See more here: http://developers.facebook.com/docs/authentication/fb_sig/
 
 ==== JavaScript SDK
 
-  fb_auth = FbGraph::Auth.new(YOUR_APP_ID, YOUR_APPLICATION_SECRET)
+  fb_auth = GSGraph::Auth.new(YOUR_APP_ID, YOUR_APPLICATION_SECRET)
   fb_auth.client # => Rack::OAuth2::Client
 
   # get Facebook's auth cookie in advance using their JS SDK
   fb_auth.from_cookie(cookies)
   fb_auth.access_token # => Rack::OAuth2::AccessToken
-  fb_auth.user         # => FbGraph::User (only basic attributes)
+  fb_auth.user         # => GSGraph::User (only basic attributes)
   fb_auth.user.fetch   # => fetch more details
 
 ==== Normal OAuth2 Flow
@@ -245,20 +243,20 @@ See more here: http://developers.facebook.com/docs/authentication/fb_sig/
   # in callback
   client.authorization_code = params[:code]
   access_token = client.access_token! :client_auth_body # => Rack::OAuth2::AccessToken
-  FbGraph::User.me(access_token).fetch # => FbGraph::User
+  GSGraph::User.me(access_token).fetch # => GSGraph::User
 
 ==== Extend Access Token Lifetime
 
   # setup client
-  fb_auth = FbGraph::Auth.new(YOUR_APP_ID, YOUR_APPLICATION_SECRET)
+  fb_auth = GSGraph::Auth.new(YOUR_APP_ID, YOUR_APPLICATION_SECRET)
   fb_auth.exchange_token! 'short-life-access-token'
   fb_auth.access_token # => Rack::OAuth2::AccessToken
 
 
 === Analytics
 
-  app = FbGraph::Application.new(YOUR_APP_ID, :secret => YOUR_APPLICATION_SECRET)
-  app.insights # => Array of FbGraph::Insight
+  app = GSGraph::Application.new(YOUR_APP_ID, :secret => YOUR_APPLICATION_SECRET)
+  app.insights # => Array of GSGraph::Insight
 
 === Test User
 
@@ -275,7 +273,7 @@ https://gist.github.com/752914
 === More Examples?
 
 See GitHub wiki for more examples.
-https://github.com/nov/fb_graph/wiki
+https://github.com/nov/gs_graph/wiki
 
 == Note on Patches/Pull Requests
 

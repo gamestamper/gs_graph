@@ -3,7 +3,7 @@ if RUBY_VERSION >= '1.9'
 end
 
 require 'rspec'
-require 'fb_graph'
-require 'fb_graph/mock'
-include FbGraph::Mock
+require 'gs_graph'
+require 'gs_graph/mock'
+include GSGraph::Mock
 WebMock.disable_net_connect!
